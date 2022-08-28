@@ -16,8 +16,13 @@ jobs:
         
       - uses: actions/setup-java@v3
         with:
-          distribution: 'corretto'
+          distribution: 'openjdk'
           java-version: '8'
+
+      - name: Adjustments sh files
+        run: | 
+          chmod +x grailsw
+          sed -i -e 's/\r$//' grailsw
 
       - name: Compile
         run: ./grailsw compile

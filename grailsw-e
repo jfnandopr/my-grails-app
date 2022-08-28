@@ -58,7 +58,7 @@ cd "`dirname \"$PRG\"`/" >/dev/null
 APP_HOME="`pwd -P`"
 cd "$SAVED" >/dev/null
 
-JAR_PATH=$APP_HOME/grails-wrapper.ja
+JAR_PATH=$APP_HOME/grails-wrapper.jar
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
