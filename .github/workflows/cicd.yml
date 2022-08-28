@@ -16,7 +16,7 @@ jobs:
         
       - uses: actions/setup-java@v3
         with:
-          distribution: 'openjdk'
+          distribution: 'adopt'
           java-version: '8'
 
       - name: Adjustments sh files
