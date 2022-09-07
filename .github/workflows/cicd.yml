@@ -77,6 +77,6 @@ jobs:
         run: |
           aws ssm send-command \
           --document-name "AWS-RunShellScript" \
-          --instance-ids i-017258787979ba950 \
+          --instance-ids ${{ matrix.instance-id }} \
           --parameters commands="cd /home/ubuntu && sudo docker-compose up -d" \
           --region us-east-1 --output text
