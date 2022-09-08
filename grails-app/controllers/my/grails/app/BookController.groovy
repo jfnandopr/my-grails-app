@@ -2,26 +2,32 @@ package my.grails.app
 
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import io.micrometer.core.annotation.Timed
 
+@Timed
 class BookController {
 
     BookService bookService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Timed
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond bookService.list(params), model:[bookCount: bookService.count()]
     }
 
+    @Timed
     def show(Long id) {
         respond bookService.get(id)
     }
 
+    @Timed
     def create() {
         respond new Book(params)
     }
 
+    @Timed
     def save(Book book) {
         if (book == null) {
             notFound()
@@ -44,10 +50,12 @@ class BookController {
         }
     }
 
+    @Timed
     def edit(Long id) {
         respond bookService.get(id)
     }
 
+    @Timed
     def update(Book book) {
         if (book == null) {
             notFound()
@@ -70,6 +78,7 @@ class BookController {
         }
     }
 
+    @Timed
     def delete(Long id) {
         if (id == null) {
             notFound()
