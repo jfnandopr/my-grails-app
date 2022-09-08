@@ -1,6 +1,6 @@
-all: prepare start
+all: start
 
-prepare:
+docker-build:
 	docker build -t jfnandopr/my-grails-app -f "docker/Dockerfile" .
 
 start:
