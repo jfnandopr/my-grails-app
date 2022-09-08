@@ -2,9 +2,9 @@ package my.grails.app
 
 import io.micrometer.core.annotation.Timed
 
+@Timed
 class MessageController {
 
-    @Timed
     def index() { 
         render "Welcome Grails App!"
     }

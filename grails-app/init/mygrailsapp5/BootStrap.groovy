@@ -1,4 +1,4 @@
-package my.grails.app
+package mygrailsapp5
 
 class BootStrap {
 

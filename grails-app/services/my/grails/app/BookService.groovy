@@ -2,6 +2,7 @@ package my.grails.app
 
 import grails.gorm.services.Service
 
+
 @Service(Book)
 interface BookService {
 
