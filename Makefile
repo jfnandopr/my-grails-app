@@ -6,11 +6,12 @@ docker-build:
 start:
 	docker-compose -f docker-compose.yml up -d
 
-deploy: infra-apply infra-prepare-and-deploy
-
 infra-apply:
-	terraform init
-	terraform apply
+	cd terraform && terraform init
+	cd terraform && terraform apply
 
-infra-prepare-and-deploy:
+infra-destroy:
+	cd terraform && terraform destroy
+
+infra-install:
 	cd ansible && ansible-playbook -i inventory.yaml playbook.yaml
