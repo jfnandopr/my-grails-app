@@ -20,7 +20,7 @@
 
     - name: Copiar docker-compose.yml
       copy:
-        src: docker-compose.yml
+        src: ../docker-compose.yml
         dest: ~/
 
     - name: Executar docker-compose.yml

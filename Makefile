@@ -6,17 +6,11 @@ docker-build:
 start:
 	docker-compose -f docker-compose.yml up -d
 
-deploy: infra-init infra-prepare-and-deploy
+deploy: infra-apply infra-prepare-and-deploy
 
-infra-init:
-	dir=$(pwd)
-	cd terraform 
+infra-apply:
 	terraform init
 	terraform apply
-	cd $dir
 
 infra-prepare-and-deploy:
-	dir=$(pwd)
-	cd ansible 
-	ansible-playbook -i inventory.yaml playbook.yaml
-	cd $dir
+	cd ansible && ansible-playbook -i inventory.yaml playbook.yaml
